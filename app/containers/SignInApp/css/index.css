@@ -1,0 +1,11 @@
+img{
+    width: 200px;
+    height: 200px
+}
+
+.test{
+    border: 1px solid red;
+    width: 250px;
+    height: 250px;
+    background-image: url('../images/1.jpg') no-repeat 100%;
+}
