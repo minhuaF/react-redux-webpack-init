@@ -13,10 +13,10 @@ new WebpackDevServer(webpack(config), {
     stats: {
         colors: true
     }
-}).listen(PORT, '192.168.1.123', function(err){
+}).listen(PORT, 'localhost', function(err){
     if(err ){
         console.log(err);
         return;
     }
-    console.log('::: Server Running::: ==> 192.168.1.123: ' + PORT);
+    console.log('::: Server Running::: ==> localhost: ' + PORT);
 })

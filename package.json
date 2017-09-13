@@ -40,16 +40,16 @@
     "babel-plugin-transform-require-ignore": "^0.0.2",
     "babel-polyfill": "^6.9.1",
     "babel-preset-react-hmre": "^1.1.1",
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "2.0.0-beta",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.13.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.12.1"
   },
-  "author": "Miwa & Vicky",
+  "author": "Miwa",
   "license": "ISC"
 }
