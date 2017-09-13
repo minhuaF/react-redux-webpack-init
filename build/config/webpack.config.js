@@ -4,15 +4,16 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  context: path.resolve(__dirname, '../../src'),
   // string | object | array
   // entry: './app/index.js',
-  entry: ['./src/index.js'],
+  entry: ['./index.js'],
   // entry: {
   //   a: './app/index.js'
   // },
 
   output: {
-    path: path.resolve(__dirname, 'dist'), // 所有输出文件的目标路径，必须是绝对路径
+    path: path.resolve(__dirname, '../../dist'), // 所有输出文件的目标路径，必须是绝对路径
     filename: '[name].bundle.js',  // 入口文件分块的文件名模板
     publicPath: '', // 自愿加载路径
     chunkFilename: '[id].[hash].bundle.js', // 决定非入口 chunk 文件的名称
@@ -50,7 +51,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.less', '.css']
+    extensions: ['.js', '.jsx', '.less', '.css'],
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, '../../src')
+    ]
   },
   devServer: {
     historyApiFallback: true,
@@ -58,14 +63,13 @@ module.exports = {
   },
   plugins: [
     // 按需加载的标识
-    // new ExtractTextPlugin('[hash]bundle.css'),
-    new ExtractTextPlugin('bundle.css'), // 插件将css合并为独立的文件，并自动在页面加载时向HTML header中插入 link 标签
+    new ExtractTextPlugin('[hash]bundle.css'), // 插件将css合并为独立的文件，并自动在页面加载时向HTML header中插入 link 标签
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({    // 解决生产环境和开发环境引用路径不一样问题，HtmlWebpackPlugin支持从模板生产html文件，生成的html里边可以正确解决js打包之后的路径、文件名问题
       inject: 'body',
       version: new Date().getTime(),
-      template: 'index.html',
+      template: path.resolve(__dirname, '../../src/index.html'),
       filename: 'index.html'
     })
   ]

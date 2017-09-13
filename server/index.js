@@ -1,13 +1,11 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config.js');
-var fs = require('fs');
-fs.createReadStream('./dev.html').pipe(fs.createWriteStream('./index.html'));
+var config = require('../build/config/webpack.config.js');
 
 var PORT = 3333;
 
 new WebpackDevServer(webpack(config), {
-    publicPath: '/dest/',
+    publicPath: '/dist/',
     hot: true,
     historyApiFallback: true,
     stats: {
